@@ -5,41 +5,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Nusa Travel | Pakej Yunnan</title>
-  <meta name="description" content="Landing page promosi Pakej Yunnan oleh Nusa Travel" />
+  <meta name="description" content="Promosi Pakej Yunnan oleh Nusa Travel" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --red: #c81844;
-      --red-dark: #9e1235;
-      --gold: #c79e45;
-      --gold-dark: #ab7f27;
-      --ink: #1f1a1b;
-      --muted: #6d6165;
-      --bg: #fff7f9;
+      --red: #c91f48;
+      --red-700: #9d1538;
+      --gold: #c9a14c;
+      --gold-700: #a67d2c;
+      --text: #201a1c;
+      --muted: #6f6468;
+      --bg: #fff8fa;
       --card: #ffffff;
-      --line: #f1d8e0;
-      --ok: #24a166;
-      --shadow: 0 14px 30px rgba(77, 12, 29, 0.08);
-      --top-h: 56px;
-      --bottom-h: 80px;
+      --line: #f1dde4;
+      --ok: #1f9f61;
+      --shadow: 0 12px 30px rgba(84, 12, 30, 0.08);
+      --top: 58px;
+      --bottom: 82px;
+      --radius: 18px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: "Montserrat", sans-serif;
-      color: var(--ink);
+      color: var(--text);
       background:
-        radial-gradient(120% 70% at 50% -10%, #ffdbe5 0%, transparent 60%),
-        linear-gradient(180deg, #fff 0%, var(--bg) 50%, #fff 100%);
+        radial-gradient(120% 90% at 50% -20%, #ffe2ea 0%, transparent 60%),
+        linear-gradient(180deg, #fff 0%, var(--bg) 55%, #fff 100%);
       display: flex;
       justify-content: center;
       overflow-x: hidden;
-      padding-top: calc(var(--top-h) + env(safe-area-inset-top));
-      padding-bottom: calc(var(--bottom-h) + 16px + env(safe-area-inset-bottom));
+      padding-top: calc(var(--top) + env(safe-area-inset-top));
+      padding-bottom: calc(var(--bottom) + 16px + env(safe-area-inset-bottom));
       -webkit-font-smoothing: antialiased;
     }
 
@@ -54,322 +56,217 @@
       left: 50%;
       transform: translateX(-50%);
       width: min(100vw, 430px);
-      z-index: 70;
+      z-index: 80;
       padding: calc(8px + env(safe-area-inset-top)) 14px 8px;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(10px);
     }
 
-    .topbar__inner {
-      background: #fff;
+    .topbar-inner {
       border: 1px solid var(--line);
       border-radius: 999px;
-      box-shadow: 0 8px 18px rgba(66, 12, 26, 0.08);
+      background: #fff;
+      box-shadow: 0 8px 16px rgba(70, 10, 25, 0.08);
+      padding: 8px 10px 8px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      padding: 8px 10px 8px 12px;
     }
 
     .brand {
-      text-transform: uppercase;
-      line-height: 1.15;
       font-size: 11px;
-      color: #7f4f5c;
       font-weight: 700;
+      color: #855460;
+      text-transform: uppercase;
+      line-height: 1.2;
     }
 
     .brand strong {
       display: block;
       font-size: 13px;
       color: var(--red);
-      letter-spacing: 0.3px;
+      letter-spacing: .2px;
     }
 
-    .mini-btn {
+    .mini-wa {
       text-decoration: none;
-      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
       min-height: 38px;
       padding: 8px 12px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      background: linear-gradient(135deg, var(--red), var(--red-700));
     }
 
-    main {
-      display: grid;
-      gap: 22px;
-      padding-top: 18px;
-    }
+    main { display: grid; gap: 22px; padding-top: 18px; }
+    main > section + section { border-top: 1px solid #f3e0e6; padding-top: 22px; }
 
-    section + section {
-      border-top: 1px solid #f3dfe5;
-      padding-top: 22px;
-    }
-
-    h1, h2, h3 { margin: 0; line-height: 1.3; text-align: center; text-transform: uppercase; }
-    h1 { font-size: clamp(24px, 6.6vw, 30px); color: var(--red-dark); font-weight: 800; }
-    h2 { font-size: 20px; color: var(--red-dark); font-weight: 800; }
-    h3 { font-size: 15px; color: var(--red-dark); font-weight: 700; }
-    p { margin: 0; font-size: 14px; line-height: 1.7; text-align: center; }
+    h1,h2,h3 { margin: 0; text-align: center; text-transform: uppercase; line-height: 1.3; }
+    h1 { font-size: clamp(24px, 6.8vw, 31px); font-weight: 800; color: var(--red-700); }
+    h2 { font-size: 20px; font-weight: 800; color: var(--red-700); }
+    h3 { font-size: 15px; font-weight: 700; color: var(--red-700); }
+    p { margin: 0; text-align: center; font-size: 14px; line-height: 1.72; }
 
     .muted { color: var(--muted); }
-    .important { text-transform: uppercase; font-weight: 800; color: var(--red-dark); }
+    .caps { text-transform: uppercase; font-weight: 800; color: var(--red-700); }
 
-    .hero,
-    .panel,
-    .offer,
-    .final,
-    .faq-item,
-    .popup-card,
-    details {
+    .hero,.card,.offer,.final,.faq-item,details,.popup-card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .hero,
-    .offer,
-    .final { padding: 20px; display: grid; gap: 12px; }
+    .hero,.offer,.final { padding: 20px; display: grid; gap: 12px; }
+    .cards,.faq,.schedule-actions,.quick-grid,.badge-row,.school-grid { display: grid; gap: 10px; }
 
     .tag {
       margin: 0 auto;
-      width: max-content;
       border-radius: 999px;
       padding: 7px 11px;
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
       color: #fff;
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      letter-spacing: .45px;
+      background: linear-gradient(135deg, var(--red), var(--red-700));
     }
 
-    .price {
-      display: flex;
-      justify-content: center;
-      align-items: baseline;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .price small { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
-    .price strong { font-size: 36px; line-height: 1; color: var(--red); font-weight: 800; }
+    .price { display: flex; gap: 8px; justify-content: center; align-items: baseline; flex-wrap: wrap; }
+    .price small { font-size: 12px; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+    .price strong { font-size: 36px; color: var(--red); line-height: 1; font-weight: 800; }
 
     .btns { display: grid; gap: 10px; }
-
     .btn {
       min-height: 50px;
+      border: 0;
       border-radius: 13px;
       text-decoration: none;
-      border: 0;
+      font: 700 14px/1 "Montserrat", sans-serif;
+      text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      text-align: center;
       padding: 12px 14px;
-      font: 700 14px/1 "Montserrat", sans-serif;
-      text-transform: uppercase;
+      text-align: center;
+      transition: transform .18s ease, box-shadow .18s ease;
       touch-action: manipulation;
-      transition: transform .2s ease, box-shadow .2s ease;
     }
 
     .btn:active { transform: translateY(1px) scale(.99); }
-    .btn-pri { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; box-shadow: 0 10px 18px rgba(155, 20, 54, 0.28); }
-    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #fff; box-shadow: 0 10px 18px rgba(165, 122, 33, 0.26); }
-    .btn-out { border: 1px solid #e9c8d3; color: var(--red-dark); background: #fff; }
+    .btn-primary { color: #fff; background: linear-gradient(135deg, var(--red), var(--red-700)); box-shadow: 0 10px 18px rgba(157, 21, 56, 0.28); }
+    .btn-gold { color: #fff; background: linear-gradient(135deg, var(--gold), var(--gold-700)); box-shadow: 0 10px 18px rgba(166, 125, 44, 0.28); }
+    .btn-outline { color: var(--red-700); background: #fff; border: 1px solid #e8c8d2; }
 
     .wa { width: 18px; height: 18px; }
 
-    .hero-img,
-    .img-box { border-radius: 14px; overflow: hidden; border: 1px solid #f1d8e1; }
+    .hero-img,.image { border-radius: 14px; overflow: hidden; border: 1px solid #f2dbe2; }
+    .hero-img img,.image img { width: 100%; display: block; aspect-ratio: 16 / 10; object-fit: cover; }
 
-    .hero-img img,
-    .img-box img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-    }
+    .trust { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .trust li { text-align: center; font-size: 13px; text-transform: uppercase; font-weight: 600; color: #624b52; }
+    .trust li::before { content: "• "; color: var(--gold); }
 
-    .trust {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
+    .card { padding: 14px; display: grid; gap: 8px; }
+    .card p { font-size: 13px; }
 
-    .trust li {
-      font-size: 13px;
-      font-weight: 600;
-      text-align: center;
-      color: #604a52;
-      text-transform: uppercase;
-    }
+    .quick-grid { grid-template-columns: 1fr 1fr; }
 
-    .trust li::before { content: "• "; color: var(--gold); font-size: 16px; }
+    .tick-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .tick-list li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; }
+    .tick { width: 22px; height: 22px; border-radius: 50%; background: #fbe8ed; color: var(--red); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
 
-    .cards,
-    .gallery,
-    .faq,
-    .school-grid { display: grid; gap: 10px; }
+    .compare { display: grid; gap: 10px; }
+    .compare .card { text-align: left; }
+    .compare h3,.compare p { text-align: left; }
 
-    .panel { padding: 14px; display: grid; gap: 8px; }
-    .panel p { font-size: 13px; }
-
-    .bullets {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .bullets li {
-      display: grid;
-      grid-template-columns: 22px 1fr;
-      gap: 8px;
-      align-items: start;
-      text-align: left;
-    }
-
-    .tick {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #fbe8ee;
-      color: var(--red);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-    }
+    .highlight-grid { display: grid; gap: 10px; }
 
     .schedule-head {
       border-radius: 16px;
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
-      color: #fff;
       padding: 16px;
+      background: linear-gradient(135deg, var(--red), var(--red-700));
+      color: #fff;
       display: grid;
       gap: 8px;
     }
-
-    .schedule-head h2,
-    .schedule-head p { color: #fff; }
+    .schedule-head h2,.schedule-head p { color: #fff; }
 
     details { overflow: hidden; }
-
     summary {
       list-style: none;
       cursor: pointer;
+      padding: 14px 12px;
       text-align: center;
       text-transform: uppercase;
       font-size: 14px;
       font-weight: 800;
       color: #fff;
-      padding: 14px 12px;
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      background: linear-gradient(135deg, var(--red), var(--red-700));
     }
-
     summary::-webkit-details-marker { display: none; }
 
-    .table-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      background: #fff;
-    }
-
-    .tbl {
-      width: 100%;
-      min-width: 540px;
-      border-collapse: collapse;
-    }
-
-    .tbl th,
-    .tbl td {
-      border: 1px solid #efcfd8;
-      text-align: center;
-      padding: 8px 6px;
-      font-size: 12px;
-      white-space: nowrap;
-    }
-
-    .tbl th {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      background: #fff1f5;
-      color: var(--red-dark);
-    }
-
-    .tbl td {
-      font-weight: 600;
-      color: #47363c;
-    }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; }
+    .tbl { width: 100%; min-width: 540px; border-collapse: collapse; }
+    .tbl th,.tbl td { border: 1px solid #efced7; text-align: center; padding: 8px 6px; white-space: nowrap; }
+    .tbl th { font-size: 11px; text-transform: uppercase; background: #fff2f6; color: var(--red-700); }
+    .tbl td { font-size: 12px; color: #4c3a3f; font-weight: 600; }
     .school-item {
-      border: 1px solid #efced7;
-      border-radius: 12px;
+      border: 1px solid #efcdd6;
       background: #fff7f9;
+      border-radius: 12px;
       padding: 11px;
       text-align: center;
       font-size: 13px;
       font-weight: 700;
-      color: var(--red-dark);
+      color: var(--red-700);
       text-transform: uppercase;
     }
 
-    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .badge-row { grid-template-columns: 1fr 1fr; }
     .badge {
-      border-radius: 999px;
       border: 1px solid #efced7;
       background: #fff6f9;
-      color: var(--red-dark);
-      padding: 8px 11px;
+      border-radius: 999px;
+      padding: 8px 10px;
+      text-align: center;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
+      color: var(--red-700);
     }
 
-    .stars { text-align: center; color: #f3ad10; letter-spacing: 1px; font-size: 14px; }
+    .stars { text-align: center; font-size: 14px; letter-spacing: 1px; color: #f2ae12; }
+
+    .offer { background: linear-gradient(160deg, #fff 0%, #fff8fb 100%); }
 
     .faq-item { padding: 14px; }
-
     .faq-btn {
       width: 100%;
       border: 0;
       background: #fff;
-      color: var(--red-dark);
-      text-transform: uppercase;
       font: 700 14px/1.45 "Montserrat", sans-serif;
+      text-transform: uppercase;
+      color: var(--red-700);
       text-align: center;
       cursor: pointer;
     }
-
-    .faq-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .28s ease;
-    }
-
+    .faq-panel { max-height: 0; overflow: hidden; transition: max-height .28s ease; }
     .faq-panel p { padding-top: 8px; }
 
     .final {
-      background: linear-gradient(160deg, var(--red-dark) 0%, var(--red) 70%, #da4a66 100%);
+      background: linear-gradient(160deg, var(--red-700) 0%, var(--red) 68%, #db4d68 100%);
       color: #fff;
     }
-
-    .final h2,
-    .final p { color: #fff; }
+    .final h2,.final p { color: #fff; }
 
     .sticky-bottom {
       position: fixed;
@@ -377,33 +274,31 @@
       transform: translateX(-50%);
       bottom: 0;
       width: min(100vw, 430px);
-      z-index: 65;
+      z-index: 72;
       padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-      background: rgba(255, 255, 255, .95);
-      border-top: 1px solid #f0d9e1;
+      background: rgba(255,255,255,.95);
+      border-top: 1px solid var(--line);
       backdrop-filter: blur(10px);
     }
-
     .sticky-bottom .btn { width: 100%; min-height: 52px; }
 
     .wa-float {
       position: fixed;
       right: calc(max((100vw - 430px) / 2, 0px) + 14px);
-      bottom: calc(var(--bottom-h) + 18px + env(safe-area-inset-bottom));
+      bottom: calc(var(--bottom) + 18px + env(safe-area-inset-bottom));
       width: 56px;
       height: 56px;
       border-radius: 50%;
       background: #25d366;
       color: #fff;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 12px 22px rgba(12, 97, 48, 0.34);
-      z-index: 64;
-      animation: pulse 2.4s ease-in-out infinite;
+      box-shadow: 0 12px 22px rgba(12,97,48,.34);
+      z-index: 71;
+      animation: pulse 2.5s ease-in-out infinite;
     }
-
     .wa-float svg { width: 26px; height: 26px; }
 
     .popup {
@@ -413,52 +308,24 @@
       align-items: center;
       justify-content: center;
       padding: 16px;
-      background: rgba(22, 9, 12, 0.55);
-      z-index: 80;
+      background: rgba(26, 10, 14, .55);
+      z-index: 90;
     }
-
     .popup.show { display: flex; }
 
-    .popup-card {
-      width: min(100%, 390px);
-      padding: 16px;
-      display: grid;
-      gap: 10px;
-      animation: popupIn .2s ease;
-    }
+    .popup-card { width: min(100%, 390px); padding: 16px; display: grid; gap: 10px; animation: popIn .22s ease; }
+    .popup-top { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+    .popup-close { width: 34px; height: 34px; border: 0; border-radius: 10px; background: #f7e9ed; color: var(--red-700); font-size: 18px; cursor: pointer; }
 
-    .popup-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 8px;
-    }
-
-    .popup-close {
-      width: 34px;
-      height: 34px;
-      border: 0;
-      border-radius: 10px;
-      background: #f6e8ec;
-      color: var(--red-dark);
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity .45s ease, transform .45s ease;
-    }
-
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .45s ease, transform .45s ease; }
     .reveal.on { opacity: 1; transform: none; }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 12px 22px rgba(12, 97, 48, 0.34), 0 0 0 0 rgba(37, 211, 102, .45); }
-      50% { box-shadow: 0 12px 22px rgba(12, 97, 48, 0.34), 0 0 0 12px rgba(37, 211, 102, 0); }
+      0%,100% { box-shadow: 0 12px 22px rgba(12,97,48,.34), 0 0 0 0 rgba(37,211,102,.42); }
+      50% { box-shadow: 0 12px 22px rgba(12,97,48,.34), 0 0 0 12px rgba(37,211,102,0); }
     }
 
-    @keyframes popupIn {
+    @keyframes popIn {
       from { opacity: 0; transform: translateY(14px) scale(.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
@@ -471,9 +338,9 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar__inner">
+    <div class="topbar-inner">
       <div class="brand">Nusa Travel<strong>Pakej Yunnan</strong></div>
-      <a class="mini-btn" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Kami</a>
+      <a class="mini-wa" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Kami</a>
     </div>
   </header>
 
@@ -482,38 +349,54 @@
       <section class="hero reveal" id="utama">
         <span class="tag">Attention</span>
         <h1>Pakej Yunnan Yang Lebih Mudah, Tersusun Dan Selesa</h1>
-        <p class="muted">Nikmati pengalaman ke Yunnan bersama Nusa Travel dengan susunan perjalanan yang lebih teratur untuk pengalaman travel yang lebih tenang dan menyenangkan.</p>
+        <p class="muted">Nikmati pengalaman ke Yunnan bersama Nusa Travel dengan susunan perjalanan yang lebih teratur untuk memberikan perjalanan yang lebih tenang dan menyenangkan.</p>
         <div class="price"><small>Harga Promosi</small><strong>RM3890</strong></div>
         <div class="btns">
-          <a class="btn btn-pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">
             <svg class="wa" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.18c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.54.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.59 1.1 2.77c.13.18 1.88 2.87 4.55 4.02.64.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.12-.24-.2-.51-.34z"/><path d="M16.02 3.2c-7.05 0-12.78 5.72-12.78 12.77 0 2.25.59 4.45 1.7 6.39L3.12 28.8l6.61-1.74a12.74 12.74 0 0 0 6.29 1.7h.01c7.04 0 12.77-5.73 12.77-12.77 0-3.41-1.33-6.62-3.74-9.03A12.68 12.68 0 0 0 16.02 3.2zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.63 10.63 0 1 1 8.92 4.89z"/></svg>
             Tanya Melalui WhatsApp
           </a>
-          <a class="btn btn-out" href="#jadual">Lihat Tarikh & Harga</a>
+          <a class="btn btn-outline" href="#jadual">Lihat Tarikh & Harga</a>
         </div>
         <ul class="trust">
           <li>Perjalanan Lebih Terancang</li>
-          <li>Sesuai Untuk First Timer</li>
+          <li>Sesuai Untuk First Time Travel</li>
           <li>Mudah Untuk Semakan Dan Pertanyaan</li>
         </ul>
-        <figure class="hero-img">
-          <img src="https://placehold.co/900x560/fff2f6/a11335?text=Hero+Image+Yunnan" alt="Hero Image Yunnan" />
-        </figure>
+        <figure class="hero-img"><img src="https://placehold.co/900x560/fff1f6/a41438?text=Hero+Image+Yunnan" alt="Hero Image Yunnan" /></figure>
       </section>
 
       <section class="reveal">
         <h2>Kenapa Pakej Ini Menarik</h2>
-        <div class="cards">
-          <article class="panel"><h3>Perjalanan Lebih Mudah</h3><p>Semua susunan asas trip lebih teratur dan mudah diikuti.</p></article>
-          <article class="panel"><h3>Trip Lebih Tersusun</h3><p>Itinerary jelas supaya anda fokus kepada pengalaman, bukan urusan teknikal.</p></article>
-          <article class="panel"><h3>Sesuai Pelbagai Golongan</h3><p>Sesuai untuk first timer, pasangan dan keluarga.</p></article>
-          <article class="panel"><h3>Destinasi Menarik</h3><p>Gabungan pemandangan, bandar lama, tasik dan budaya tempatan.</p></article>
+        <div class="quick-grid">
+          <article class="card"><h3>Mudah</h3><p>Susunan perjalanan lebih jelas.</p></article>
+          <article class="card"><h3>Tersusun</h3><p>Kurang stres urus trip sendiri.</p></article>
+          <article class="card"><h3>Mesra First Timer</h3><p>Sesuai untuk pelbagai golongan.</p></article>
+          <article class="card"><h3>Destinasi Menarik</h3><p>Alam, budaya, bandar lama, tasik.</p></article>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Kenapa Ramai Suka Pakej Tersusun</h2>
+        <p class="muted">Bila perjalanan disusun awal, anda tidak perlu pening urus terlalu banyak perkara. Nilai RM3890 jadi lebih berbaloi kerana pengalaman lebih lancar dan selesa.</p>
+        <div class="compare">
+          <article class="card"><h3>Rancang Sendiri</h3><p>Perlu semak banyak perkara secara berasingan dan mudah rasa terbeban.</p></article>
+          <article class="card"><h3>Bersama Nusa Travel</h3><p>Aliran perjalanan lebih jelas, pertanyaan mudah, pengalaman lebih tenang.</p></article>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Tarikan Menarik Di Yunnan</h2>
+        <div class="highlight-grid">
+          <article class="card"><figure class="image"><img loading="lazy" src="https://placehold.co/900x560/fef3f6/9c1435?text=Gambar+Pemandangan+Gunung" alt="Gambar Pemandangan Gunung" /></figure><p>Gunung Dan Pemandangan Alam</p></article>
+          <article class="card"><figure class="image"><img loading="lazy" src="https://placehold.co/900x560/fef3f6/9c1435?text=Gambar+Bandar+Lama" alt="Gambar Bandar Lama" /></figure><p>Bandar Lama</p></article>
+          <article class="card"><figure class="image"><img loading="lazy" src="https://placehold.co/900x560/fef3f6/9c1435?text=Gambar+Tasik+Yunnan" alt="Gambar Tasik Yunnan" /></figure><p>Tasik Dan Suasana Semula Jadi</p></article>
         </div>
       </section>
       <section class="reveal" id="jadual">
         <div class="schedule-head">
           <h2>Tarikh Pelepasan 2026</h2>
-          <p class="important">Tekan Untuk Semak Tarikh Berlepas, Ketibaan, Harga Asal Dan Harga Promo</p>
+          <p class="caps">Tekan Bahagian Di Bawah Untuk Semak Tarikh Berlepas, Ketibaan, Harga Asal Dan Harga Promo</p>
         </div>
 
         <details>
@@ -524,14 +407,9 @@
               <tbody>
                 <tr><td>25 MAR</td><td>31 MAR</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Fitri</td></tr>
                 <tr><td>28 MEI</td><td>03 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Adha</td></tr>
-                <tr><td>29 MEI</td><td>04 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Adha</td></tr>
                 <tr><td>30 MEI</td><td>05 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Adha</td></tr>
-                <tr><td>31 MEI</td><td>06 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Adha</td></tr>
-                <tr><td>01 JUN</td><td>07 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
-                <tr><td>28 AUG</td><td>03 SEP</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
-                <tr><td>29 AUG</td><td>04 SEP</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
-                <tr><td>30 AUG</td><td>05 SEP</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
                 <tr><td>31 AUG</td><td>06 SEP</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
+                <tr><td>05 DEC</td><td>11 DEC</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
               </tbody>
             </table>
           </div>
@@ -545,12 +423,9 @@
               <tbody>
                 <tr><td>07 FEB</td><td>13 FEB</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Winter</td></tr>
                 <tr><td>02 APR</td><td>08 APR</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Spring</td></tr>
-                <tr><td>16 APR</td><td>22 APR</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Spring</td></tr>
                 <tr><td>10 JUN</td><td>16 JUN</td><td>RM 4,590</td><td>RM 4,190</td><td>Musim Summer</td></tr>
                 <tr><td>17 JUL</td><td>23 JUL</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Summer</td></tr>
-                <tr><td>24 SEP</td><td>30 SEP</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Summer</td></tr>
                 <tr><td>09 OCT</td><td>15 OCT</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Autumn</td></tr>
-                <tr><td>06 NOV</td><td>12 NOV</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Autumn + Deepavali</td></tr>
               </tbody>
             </table>
           </div>
@@ -563,64 +438,64 @@
           <div class="school-item">Cuti 3: 29 Ogos 2026 - 06 Sep 2026</div>
           <div class="school-item">Cuti 4: 05 Dis 2026 - 31 Dis 2026</div>
         </div>
-
-        <p class="important">Maklumat Flight: Batik Air / AirAsia (Tertakluk Jadual Semasa)</p>
-        <div class="btns"><a class="btn btn-gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">Semak Tarikh Di WhatsApp</a></div>
+        <p class="caps">Maklumat Flight: Batik Air / AirAsia (Tertakluk Kepada Jadual Semasa)</p>
+        <div class="schedule-actions"><a class="btn btn-gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">Semak Tarikh Di WhatsApp</a></div>
       </section>
 
       <section class="reveal">
         <h2>Apa Yang Termasuk Dalam Pakej</h2>
-        <ul class="bullets">
-          <li><span class="tick">✓</span><span class="important">Penginapan</span></li>
-          <li><span class="tick">✓</span><span class="important">Pengangkutan Perjalanan</span></li>
-          <li><span class="tick">✓</span><span class="important">Itinerary Tersusun</span></li>
-          <li><span class="tick">✓</span><span class="important">Lawatan Ke Lokasi Menarik</span></li>
-          <li><span class="tick">✓</span><span class="important">Bantuan Dan Sokongan Sepanjang Trip</span></li>
+        <ul class="tick-list">
+          <li><span class="tick">✓</span><span class="caps">Penginapan</span></li>
+          <li><span class="tick">✓</span><span class="caps">Pengangkutan Perjalanan</span></li>
+          <li><span class="tick">✓</span><span class="caps">Itinerary Tersusun</span></li>
+          <li><span class="tick">✓</span><span class="caps">Lawatan Lokasi Menarik</span></li>
+          <li><span class="tick">✓</span><span class="caps">Sokongan Sepanjang Trip</span></li>
         </ul>
       </section>
 
       <section class="reveal">
         <h2>Maklum Balas Pelanggan</h2>
         <div class="cards">
-          <article class="panel"><div class="stars">★★★★★</div><h3>Nama Pelanggan 1</h3><p>Urusan sangat jelas dan lebih mudah untuk first timer.</p></article>
-          <article class="panel"><div class="stars">★★★★★</div><h3>Nama Pelanggan 2</h3><p>Team cepat respon di WhatsApp dan penerangan kemas.</p></article>
+          <article class="card"><div class="stars">★★★★★</div><h3>Nama Pelanggan 1</h3><p>Urusan lebih mudah dan team cepat bantu bila ada pertanyaan.</p></article>
+          <article class="card"><div class="stars">★★★★★</div><h3>Nama Pelanggan 2</h3><p>Sesuai untuk first timer sebab penerangan jelas dan tersusun.</p></article>
         </div>
-        <div class="badges">
+        <div class="badge-row">
           <span class="badge">Travel Agency Berdaftar</span>
           <span class="badge">Pertanyaan Mudah</span>
-          <span class="badge">Pelanggan Berpuas Hati</span>
+          <span class="badge">Pengalaman Pelanggan Memuaskan</span>
+          <span class="badge">Bantuan Mesra Pelanggan</span>
         </div>
       </section>
 
       <section class="offer reveal" id="offer">
         <span class="tag">Desire</span>
         <h2>Pakej Yunnan</h2>
-        <p class="important">Harga Promosi RM3890</p>
-        <p>Pakej ini sesuai untuk mereka yang mahu pengalaman travel lebih teratur, lebih selesa dan lebih mudah diuruskan.</p>
-        <ul class="bullets">
-          <li><span class="tick">✓</span><span class="important">Tempat Terhad Mengikut Kekosongan</span></li>
-          <li><span class="tick">✓</span><span class="important">Semakan Awal Digalakkan</span></li>
-          <li><span class="tick">✓</span><span class="important">Hubungi Kami Untuk Maklumat Lanjut</span></li>
+        <p class="caps">Harga Promosi RM3890</p>
+        <p class="muted">Pakej ini sesuai untuk mereka yang mahu pengalaman travel lebih mudah, lebih teratur dan lebih selesa tanpa perlu mengurus terlalu banyak perkara sendiri.</p>
+        <ul class="tick-list">
+          <li><span class="tick">✓</span><span class="caps">Tempat Adalah Terhad</span></li>
+          <li><span class="tick">✓</span><span class="caps">Semakan Awal Digalakkan</span></li>
+          <li><span class="tick">✓</span><span class="caps">Hubungi Kami Untuk Maklumat Lanjut</span></li>
         </ul>
-        <a class="btn btn-pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
+        <a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
       </section>
 
       <section class="reveal" id="faq">
         <h2>Soalan Lazim</h2>
         <div class="faq">
-          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Adakah Pakej Ini Sesuai Untuk First Time Travel?</button><div class="faq-panel"><p>Ya, pakej ini disusun supaya mudah diikuti oleh pelanggan yang baru pertama kali travel ke Yunnan.</p></div></article>
-          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Boleh Semak Tarikh Dahulu Sebelum Tempah?</button><div class="faq-panel"><p>Boleh. Anda boleh lihat jadual premium dan biasa, kemudian hubungi WhatsApp untuk pengesahan semasa.</p></div></article>
-          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Flight Menggunakan Syarikat Apa?</button><div class="faq-panel"><p>Cadangan flight termasuk Batik Air atau AirAsia, tertakluk kepada jadual dan kekosongan semasa.</p></div></article>
+          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Adakah Pakej Ini Sesuai Untuk First Time Travel?</button><div class="faq-panel"><p>Ya, pakej ini disusun untuk pelanggan first timer supaya lebih mudah ikut perjalanan.</p></div></article>
+          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Bolehkah Saya Semak Tarikh Dahulu?</button><div class="faq-panel"><p>Boleh. Anda boleh semak tarikh premium dan biasa dahulu sebelum buat keputusan.</p></div></article>
+          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Bagaimana Cara Hubungi Team?</button><div class="faq-panel"><p>Tekan mana-mana butang WhatsApp di halaman ini untuk pertanyaan segera.</p></div></article>
         </div>
       </section>
 
       <section class="final reveal" id="hubungi">
         <span class="tag" style="background:rgba(255,255,255,.2)">Action</span>
         <h2>Berminat Dengan Pakej Yunnan Ini?</h2>
-        <p>Untuk pertanyaan, semakan tarikh dan maklumat lanjut, hubungi kami terus melalui WhatsApp.</p>
+        <p>Untuk pertanyaan, semakan tarikh, atau maklumat lanjut, hubungi kami terus melalui WhatsApp.</p>
         <div class="btns">
           <a class="btn btn-gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
-          <a class="btn btn-out" href="#utama">Lihat Semula Maklumat</a>
+          <a class="btn btn-outline" href="#utama">Lihat Semula Maklumat</a>
         </div>
       </section>
     </main>
@@ -630,37 +505,32 @@
     <svg viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.18c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.54.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.59 1.1 2.77c.13.18 1.88 2.87 4.55 4.02.64.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.12-.24-.2-.51-.34z"/><path d="M16.02 3.2c-7.05 0-12.78 5.72-12.78 12.77 0 2.25.59 4.45 1.7 6.39L3.12 28.8l6.61-1.74a12.74 12.74 0 0 0 6.29 1.7h.01c7.04 0 12.77-5.73 12.77-12.77 0-3.41-1.33-6.62-3.74-9.03A12.68 12.68 0 0 0 16.02 3.2zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.63 10.63 0 1 1 8.92 4.89z"/></svg>
   </a>
 
-  <div class="sticky-bottom">
-    <a class="btn btn-pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">Hubungi Kami Di WhatsApp</a>
-  </div>
+  <div class="sticky-bottom"><a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">Hubungi Kami Di WhatsApp</a></div>
 
   <aside class="popup" id="promoPopup" aria-hidden="true" role="dialog">
     <div class="popup-card">
       <div class="popup-top">
-        <div>
-          <h3>Berminat Dengan Pakej Yunnan?</h3>
-          <p class="muted">Hubungi kami di WhatsApp untuk semakan tarikh terkini dan maklumat lanjut.</p>
-        </div>
+        <div><h3>Berminat Dengan Pakej Yunnan?</h3><p class="muted">Hubungi kami di WhatsApp untuk semakan tarikh terkini dan maklumat lanjut.</p></div>
         <button class="popup-close" id="popupClose" aria-label="Tutup">×</button>
       </div>
-      <a class="btn btn-pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
+      <a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
     </div>
   </aside>
 
   <script>
     (function () {
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach((item) => {
+      const faqs = document.querySelectorAll('.faq-item');
+      faqs.forEach((item) => {
         const btn = item.querySelector('.faq-btn');
         const panel = item.querySelector('.faq-panel');
         btn.addEventListener('click', () => {
-          const active = item.classList.contains('on');
-          faqItems.forEach((other) => {
-            other.classList.remove('on');
-            other.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
-            other.querySelector('.faq-panel').style.maxHeight = null;
+          const isOpen = item.classList.contains('on');
+          faqs.forEach((el) => {
+            el.classList.remove('on');
+            el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+            el.querySelector('.faq-panel').style.maxHeight = null;
           });
-          if (!active) {
+          if (!isOpen) {
             item.classList.add('on');
             btn.setAttribute('aria-expanded', 'true');
             panel.style.maxHeight = panel.scrollHeight + 'px';
@@ -668,16 +538,16 @@
         });
       });
 
-      const reveals = document.querySelectorAll('.reveal');
+      const revealEls = document.querySelectorAll('.reveal');
       const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('on');
-            io.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('on');
+            io.unobserve(e.target);
           }
         });
       }, { threshold: 0.14 });
-      reveals.forEach((el) => io.observe(el));
+      revealEls.forEach((el) => io.observe(el));
 
       const popup = document.getElementById('promoPopup');
       const popupClose = document.getElementById('popupClose');
