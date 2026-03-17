@@ -2,583 +2,66 @@
 <!doctype html>
 <html lang="ms">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Nusa Travel | Pakej Yunnan</title>
-  <meta name="description" content="Promosi Pakej Yunnan oleh Nusa Travel" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --red: #c91f48;
-      --red-700: #9d1538;
-      --gold: #c9a14c;
-      --gold-700: #a67d2c;
-      --text: #201a1c;
-      --muted: #6f6468;
-      --bg: #fff8fa;
-      --card: #ffffff;
-      --line: #f1dde4;
-      --ok: #1f9f61;
-      --shadow: 0 12px 30px rgba(84, 12, 30, 0.08);
-      --top: 58px;
-      --bottom: 82px;
-      --radius: 18px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Montserrat", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(120% 90% at 50% -20%, #ffe2ea 0%, transparent 60%),
-        linear-gradient(180deg, #fff 0%, var(--bg) 55%, #fff 100%);
-      display: flex;
-      justify-content: center;
-      overflow-x: hidden;
-      padding-top: calc(var(--top) + env(safe-area-inset-top));
-      padding-bottom: calc(var(--bottom) + 16px + env(safe-area-inset-bottom));
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .app {
-      width: min(100vw, 430px);
-      padding: 0 14px;
-    }
-
-    .topbar {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(100vw, 430px);
-      z-index: 80;
-      padding: calc(8px + env(safe-area-inset-top)) 14px 8px;
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-
-    .topbar-inner {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fff;
-      box-shadow: 0 8px 16px rgba(70, 10, 25, 0.08);
-      padding: 8px 10px 8px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .brand {
-      font-size: 11px;
-      font-weight: 700;
-      color: #855460;
-      text-transform: uppercase;
-      line-height: 1.2;
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 13px;
-      color: var(--red);
-      letter-spacing: .2px;
-    }
-
-    .mini-wa {
-      text-decoration: none;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      min-height: 38px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--red), var(--red-700));
-    }
-
-    main { display: grid; gap: 22px; padding-top: 18px; }
-    main > section + section { border-top: 1px solid #f3e0e6; padding-top: 22px; }
-
-    h1,h2,h3 { margin: 0; text-align: center; text-transform: uppercase; line-height: 1.3; }
-    h1 { font-size: clamp(24px, 6.8vw, 31px); font-weight: 800; color: var(--red-700); }
-    h2 { font-size: 20px; font-weight: 800; color: var(--red-700); }
-    h3 { font-size: 15px; font-weight: 700; color: var(--red-700); }
-    p { margin: 0; text-align: center; font-size: 14px; line-height: 1.72; }
-
-    .muted { color: var(--muted); }
-    .caps { text-transform: uppercase; font-weight: 800; color: var(--red-700); }
-
-    .hero,.card,.offer,.final,.faq-item,details,.popup-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero,.offer,.final { padding: 20px; display: grid; gap: 12px; }
-    .cards,.faq,.schedule-actions,.quick-grid,.badge-row,.school-grid { display: grid; gap: 10px; }
-
-    .tag {
-      margin: 0 auto;
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #fff;
-      letter-spacing: .45px;
-      background: linear-gradient(135deg, var(--red), var(--red-700));
-    }
-
-    .price { display: flex; gap: 8px; justify-content: center; align-items: baseline; flex-wrap: wrap; }
-    .price small { font-size: 12px; color: var(--muted); text-transform: uppercase; font-weight: 600; }
-    .price strong { font-size: 36px; color: var(--red); line-height: 1; font-weight: 800; }
-
-    .btns { display: grid; gap: 10px; }
-    .btn {
-      min-height: 50px;
-      border: 0;
-      border-radius: 13px;
-      text-decoration: none;
-      font: 700 14px/1 "Montserrat", sans-serif;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 14px;
-      text-align: center;
-      transition: transform .18s ease, box-shadow .18s ease;
-      touch-action: manipulation;
-    }
-
-    .btn:active { transform: translateY(1px) scale(.99); }
-    .btn-primary { color: #fff; background: linear-gradient(135deg, var(--red), var(--red-700)); box-shadow: 0 10px 18px rgba(157, 21, 56, 0.28); }
-    .btn-gold { color: #fff; background: linear-gradient(135deg, var(--gold), var(--gold-700)); box-shadow: 0 10px 18px rgba(166, 125, 44, 0.28); }
-    .btn-outline { color: var(--red-700); background: #fff; border: 1px solid #e8c8d2; }
-
-    .wa { width: 18px; height: 18px; }
-
-    .hero-img,.image { border-radius: 14px; overflow: hidden; border: 1px solid #f2dbe2; }
-    .hero-img img,.image img { width: 100%; display: block; aspect-ratio: 16 / 10; object-fit: cover; }
-
-    .trust { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-    .trust li { text-align: center; font-size: 13px; text-transform: uppercase; font-weight: 600; color: #624b52; }
-    .trust li::before { content: "• "; color: var(--gold); }
-
-    .card { padding: 14px; display: grid; gap: 8px; }
-    .card p { font-size: 13px; }
-
-    .quick-grid { grid-template-columns: 1fr 1fr; }
-
-    .tick-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-    .tick-list li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; }
-    .tick { width: 22px; height: 22px; border-radius: 50%; background: #fbe8ed; color: var(--red); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
-
-    .compare { display: grid; gap: 10px; }
-    .compare .card { text-align: left; }
-    .compare h3,.compare p { text-align: left; }
-
-    .highlight-grid { display: grid; gap: 10px; }
-
-    .schedule-head {
-      border-radius: 16px;
-      padding: 16px;
-      background: linear-gradient(135deg, var(--red), var(--red-700));
-      color: #fff;
-      display: grid;
-      gap: 8px;
-    }
-    .schedule-head h2,.schedule-head p { color: #fff; }
-
-    details { overflow: hidden; }
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 14px 12px;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 14px;
-      font-weight: 800;
-      color: #fff;
-      background: linear-gradient(135deg, var(--red), var(--red-700));
-    }
-    summary::-webkit-details-marker { display: none; }
-
-    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; }
-    .tbl { width: 100%; min-width: 540px; border-collapse: collapse; }
-    .tbl th,.tbl td { border: 1px solid #efced7; text-align: center; padding: 8px 6px; white-space: nowrap; }
-    .tbl th { font-size: 11px; text-transform: uppercase; background: #fff2f6; color: var(--red-700); }
-    .tbl td { font-size: 12px; color: #4c3a3f; font-weight: 600; }
-    .school-item {
-      border: 1px solid #efcdd6;
-      background: #fff7f9;
-      border-radius: 12px;
-      padding: 11px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--red-700);
-      text-transform: uppercase;
-    }
-
-    .badge-row { grid-template-columns: 1fr 1fr; }
-    .badge {
-      border: 1px solid #efced7;
-      background: #fff6f9;
-      border-radius: 999px;
-      padding: 8px 10px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--red-700);
-    }
-
-    .stars { text-align: center; font-size: 14px; letter-spacing: 1px; color: #f2ae12; }
-
-    .offer { background: linear-gradient(160deg, #fff 0%, #fff8fb 100%); }
-
-    .faq-item { padding: 14px; }
-    .faq-btn {
-      width: 100%;
-      border: 0;
-      background: #fff;
-      font: 700 14px/1.45 "Montserrat", sans-serif;
-      text-transform: uppercase;
-      color: var(--red-700);
-      text-align: center;
-      cursor: pointer;
-    }
-    .faq-panel { max-height: 0; overflow: hidden; transition: max-height .28s ease; }
-    .faq-panel p { padding-top: 8px; }
-
-    .final {
-      background: linear-gradient(160deg, var(--red-700) 0%, var(--red) 68%, #db4d68 100%);
-      color: #fff;
-    }
-    .final h2,.final p { color: #fff; }
-
-    .sticky-bottom {
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      width: min(100vw, 430px);
-      z-index: 72;
-      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-      background: rgba(255,255,255,.95);
-      border-top: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-    .sticky-bottom .btn { width: 100%; min-height: 52px; }
-
-    .wa-float {
-      position: fixed;
-      right: calc(max((100vw - 430px) / 2, 0px) + 14px);
-      bottom: calc(var(--bottom) + 18px + env(safe-area-inset-bottom));
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #25d366;
-      color: #fff;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 22px rgba(12,97,48,.34);
-      z-index: 71;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-    .wa-float svg { width: 26px; height: 26px; }
-
-    .popup {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      background: rgba(26, 10, 14, .55);
-      z-index: 90;
-    }
-    .popup.show { display: flex; }
-
-    .popup-card { width: min(100%, 390px); padding: 16px; display: grid; gap: 10px; animation: popIn .22s ease; }
-    .popup-top { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
-    .popup-close { width: 34px; height: 34px; border: 0; border-radius: 10px; background: #f7e9ed; color: var(--red-700); font-size: 18px; cursor: pointer; }
-
-    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .45s ease, transform .45s ease; }
-    .reveal.on { opacity: 1; transform: none; }
-
-    @keyframes pulse {
-      0%,100% { box-shadow: 0 12px 22px rgba(12,97,48,.34), 0 0 0 0 rgba(37,211,102,.42); }
-      50% { box-shadow: 0 12px 22px rgba(12,97,48,.34), 0 0 0 12px rgba(37,211,102,0); }
-    }
-
-    @keyframes popIn {
-      from { opacity: 0; transform: translateY(14px) scale(.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Nusa Travel | Pakej Yunnan</title>
+<meta name="description" content="Landing page promosi Pakej Yunnan oleh Nusa Travel" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{--red:#cc1f4a;--red2:#981534;--gold:#c9a14a;--text:#1f1a1b;--muted:#6f6669;--bg:#fff9fb;--card:#fff;--line:#f2dfe5;--sh:0 14px 28px rgba(84,10,28,.08);--top:58px;--bot:82px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Montserrat,sans-serif;background:radial-gradient(120% 85% at 50% -20%,#ffe2eb 0%,transparent 60%),linear-gradient(180deg,#fff 0%,var(--bg) 52%,#fff 100%);color:var(--text);display:flex;justify-content:center;overflow-x:hidden;padding-top:calc(var(--top) + env(safe-area-inset-top));padding-bottom:calc(var(--bot) + 16px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+.app{width:min(100vw,430px);padding:0 14px}
+.top{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(100vw,430px);z-index:90;padding:calc(8px + env(safe-area-inset-top)) 14px 8px;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.topin{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 10px 8px 12px;box-shadow:0 8px 16px rgba(80,12,29,.08)}
+.brand{font-size:11px;font-weight:700;color:#875260;text-transform:uppercase;line-height:1.2}.brand b{display:block;font-size:13px;color:var(--red);letter-spacing:.2px}
+.topbtn{text-decoration:none;color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;min-height:38px;padding:8px 12px;border-radius:999px;display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),var(--red2))}
+main{display:grid;gap:22px;padding-top:18px}main>section+section{border-top:1px solid #f3e2e7;padding-top:22px}
+.hero,.box,.offer,.final,.faqi,details,.popcard{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh)}
+.hero,.offer,.final{padding:20px;display:grid;gap:12px}.sec,.cards,.gallery,.faq,.school{display:grid;gap:10px}
+h1,h2,h3{margin:0;text-align:center;text-transform:uppercase;line-height:1.3}h1{font-size:clamp(24px,6.7vw,31px);font-weight:800;color:var(--red2)}h2{font-size:20px;font-weight:800;color:var(--red2)}h3{font-size:15px;font-weight:700;color:var(--red2)}
+p{margin:0;text-align:center;font-size:14px;line-height:1.7}.muted{color:var(--muted)}.caps{text-transform:uppercase;font-weight:800;color:var(--red2)}
+.tag{margin:0 auto;width:max-content;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--red),var(--red2));text-transform:uppercase;letter-spacing:.4px}
+.price{display:flex;justify-content:center;align-items:baseline;gap:8px;flex-wrap:wrap}.price small{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase}.price b{font-size:38px;color:var(--red);font-weight:800;line-height:1}
+.btns{display:grid;gap:10px}.btn{min-height:50px;border:0;border-radius:13px;text-decoration:none;font:700 14px/1 Montserrat,sans-serif;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;text-align:center;touch-action:manipulation;transition:transform .2s ease}.btn:active{transform:translateY(1px) scale(.99)}
+.pri{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 10px 18px rgba(152,21,52,.28)}.gold{background:linear-gradient(135deg,var(--gold),#ab7f27);color:#fff;box-shadow:0 10px 18px rgba(171,127,39,.28)}.out{background:#fff;color:var(--red2);border:1px solid #eacbd4}
+.wa{width:18px;height:18px}.heroimg,.img{border-radius:14px;overflow:hidden;border:1px solid #f2dce3}.heroimg img,.img img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.pill{font-size:12px;text-transform:uppercase;font-weight:700;color:#704951;background:#fff7f9;border:1px solid #efd5dc;border-radius:999px;padding:7px 10px}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}.box{padding:14px;display:grid;gap:8px}.box p{font-size:13px}
+.compare{display:grid;gap:10px}.compare .box h3,.compare .box p{text-align:left}
+.ticklist{margin:0;padding:0;list-style:none;display:grid;gap:10px}.ticklist li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}.tick{width:22px;height:22px;border-radius:50%;background:#fae8ed;color:var(--red);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.head{border-radius:16px;background:linear-gradient(135deg,var(--red),var(--red2));padding:16px;display:grid;gap:8px}.head h2,.head p{color:#fff}
+details{overflow:hidden}summary{list-style:none;cursor:pointer;padding:14px 12px;text-align:center;text-transform:uppercase;font-size:14px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--red),var(--red2))}summary::-webkit-details-marker{display:none}
+.twrap{overflow-x:auto;-webkit-overflow-scrolling:touch;background:#fff}.tbl{width:100%;min-width:530px;border-collapse:collapse}.tbl th,.tbl td{border:1px solid #efced7;text-align:center;padding:8px 6px;white-space:nowrap}.tbl th{font-size:11px;background:#fff2f6;color:var(--red2);text-transform:uppercase}.tbl td{font-size:12px;color:#4d3a3f;font-weight:600}
+.school .item{border:1px solid #efced7;background:#fff7f9;border-radius:12px;padding:11px;text-align:center;font-size:13px;font-weight:700;text-transform:uppercase;color:var(--red2)}
+.stars{text-align:center;color:#f2ae12;letter-spacing:1px;font-size:14px}.badges{display:grid;grid-template-columns:1fr 1fr;gap:8px}.badge{border:1px solid #efced7;background:#fff7f9;border-radius:999px;padding:8px 10px;text-align:center;font-size:12px;font-weight:700;text-transform:uppercase;color:var(--red2)}
+.faqi{padding:14px}.fbtn{width:100%;border:0;background:#fff;text-align:center;text-transform:uppercase;font:700 14px/1.45 Montserrat,sans-serif;color:var(--red2);cursor:pointer}.fp{max-height:0;overflow:hidden;transition:max-height .28s ease}.fp p{padding-top:8px}
+.final{background:linear-gradient(160deg,var(--red2) 0%,var(--red) 68%,#d84d69 100%)}.final h2,.final p{color:#fff}
+.sb{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(100vw,430px);z-index:82;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.95);border-top:1px solid var(--line);backdrop-filter:blur(10px)}.sb .btn{width:100%;min-height:52px}
+.wf{position:fixed;right:calc(max((100vw - 430px)/2,0px) + 14px);bottom:calc(var(--bot) + 18px + env(safe-area-inset-bottom));width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;z-index:81;box-shadow:0 12px 22px rgba(12,97,48,.34);animation:pulse 2.4s ease-in-out infinite}.wf svg{width:26px;height:26px}
+.pop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(24,9,13,.55);z-index:95}.pop.show{display:flex}.popcard{width:min(100%,390px);padding:16px;display:grid;gap:10px;animation:pop .22s ease}.popt{display:flex;justify-content:space-between;align-items:start;gap:8px}.x{width:34px;height:34px;border:0;border-radius:10px;background:#f7e8ed;color:var(--red2);font-size:18px;cursor:pointer}
+.rev{opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}.rev.on{opacity:1;transform:none}
+@keyframes pulse{0%,100%{box-shadow:0 12px 22px rgba(12,97,48,.34),0 0 0 0 rgba(37,211,102,.42)}50%{box-shadow:0 12px 22px rgba(12,97,48,.34),0 0 0 12px rgba(37,211,102,0)}}@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Nusa Travel<strong>Pakej Yunnan</strong></div>
-      <a class="mini-wa" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Kami</a>
-    </div>
-  </header>
-
-  <div class="app">
-    <main>
-      <section class="hero reveal" id="utama">
-        <span class="tag">Attention</span>
-        <h1>Pakej Yunnan Yang Lebih Mudah, Tersusun Dan Selesa</h1>
-        <p class="muted">Nikmati pengalaman ke Yunnan bersama Nusa Travel dengan susunan perjalanan yang lebih teratur untuk memberikan perjalanan yang lebih tenang dan menyenangkan.</p>
-        <div class="price"><small>Harga Promosi</small><strong>RM3890</strong></div>
-        <div class="btns">
-          <a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">
-            <svg class="wa" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.18c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.54.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.59 1.1 2.77c.13.18 1.88 2.87 4.55 4.02.64.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.12-.24-.2-.51-.34z"/><path d="M16.02 3.2c-7.05 0-12.78 5.72-12.78 12.77 0 2.25.59 4.45 1.7 6.39L3.12 28.8l6.61-1.74a12.74 12.74 0 0 0 6.29 1.7h.01c7.04 0 12.77-5.73 12.77-12.77 0-3.41-1.33-6.62-3.74-9.03A12.68 12.68 0 0 0 16.02 3.2zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.63 10.63 0 1 1 8.92 4.89z"/></svg>
-            Tanya Melalui WhatsApp
-          </a>
-          <a class="btn btn-outline" href="#jadual">Lihat Tarikh & Harga</a>
-        </div>
-        <ul class="trust">
-          <li>Perjalanan Lebih Terancang</li>
-          <li>Sesuai Untuk First Time Travel</li>
-          <li>Mudah Untuk Semakan Dan Pertanyaan</li>
-        </ul>
-        <figure class="hero-img"><img src="https://placehold.co/900x560/fff1f6/a41438?text=Hero+Image+Yunnan" alt="Hero Image Yunnan" /></figure>
-      </section>
-
-      <section class="reveal">
-        <h2>Kenapa Pakej Ini Menarik</h2>
-        <div class="quick-grid">
-          <article class="card"><h3>Mudah</h3><p>Susunan perjalanan lebih jelas.</p></article>
-          <article class="card"><h3>Tersusun</h3><p>Kurang stres urus trip sendiri.</p></article>
-          <article class="card"><h3>Mesra First Timer</h3><p>Sesuai untuk pelbagai golongan.</p></article>
-          <article class="card"><h3>Destinasi Menarik</h3><p>Alam, budaya, bandar lama, tasik.</p></article>
-        </div>
-      </section>
-
-      <section class="reveal">
-        <h2>Kenapa Ramai Suka Pakej Tersusun</h2>
-        <p class="muted">Bila perjalanan disusun awal, anda tidak perlu pening urus terlalu banyak perkara. Nilai RM3890 jadi lebih berbaloi kerana pengalaman lebih lancar dan selesa.</p>
-        <div class="compare">
-          <article class="card"><h3>Rancang Sendiri</h3><p>Perlu semak banyak perkara secara berasingan dan mudah rasa terbeban.</p></article>
-          <article class="card"><h3>Bersama Nusa Travel</h3><p>Aliran perjalanan lebih jelas, pertanyaan mudah, pengalaman lebih tenang.</p></article>
-        </div>
-      </section>
-
-      <section class="reveal">
-        <h2>Tarikan Menarik Di Yunnan</h2>
-        <div class="highlight-grid">
-          <article class="card"><figure class="image"><img loading="lazy" src="https://placehold.co/900x560/fef3f6/9c1435?text=Gambar+Pemandangan+Gunung" alt="Gambar Pemandangan Gunung" /></figure><p>Gunung Dan Pemandangan Alam</p></article>
-          <article class="card"><figure class="image"><img loading="lazy" src="https://placehold.co/900x560/fef3f6/9c1435?text=Gambar+Bandar+Lama" alt="Gambar Bandar Lama" /></figure><p>Bandar Lama</p></article>
-          <article class="card"><figure class="image"><img loading="lazy" src="https://placehold.co/900x560/fef3f6/9c1435?text=Gambar+Tasik+Yunnan" alt="Gambar Tasik Yunnan" /></figure><p>Tasik Dan Suasana Semula Jadi</p></article>
-        </div>
-      </section>
-      <section class="reveal" id="jadual">
-        <div class="schedule-head">
-          <h2>Tarikh Pelepasan 2026</h2>
-          <p class="caps">Tekan Bahagian Di Bawah Untuk Semak Tarikh Berlepas, Ketibaan, Harga Asal Dan Harga Promo</p>
-        </div>
-
-        <details>
-          <summary>Tarikh Premium 2026</summary>
-          <div class="table-wrap">
-            <table class="tbl">
-              <thead><tr><th>Berlepas</th><th>Ketibaan</th><th>Harga Asal</th><th>Harga Promo</th><th>Nota</th></tr></thead>
-              <tbody>
-                <tr><td>25 MAR</td><td>31 MAR</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Fitri</td></tr>
-                <tr><td>28 MEI</td><td>03 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Adha</td></tr>
-                <tr><td>30 MEI</td><td>05 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya Eid Adha</td></tr>
-                <tr><td>31 AUG</td><td>06 SEP</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
-                <tr><td>05 DEC</td><td>11 DEC</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-
-        <details>
-          <summary>Tarikh Biasa 2026</summary>
-          <div class="table-wrap">
-            <table class="tbl">
-              <thead><tr><th>Berlepas</th><th>Ketibaan</th><th>Harga Asal</th><th>Harga Promo</th><th>Nota</th></tr></thead>
-              <tbody>
-                <tr><td>07 FEB</td><td>13 FEB</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Winter</td></tr>
-                <tr><td>02 APR</td><td>08 APR</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Spring</td></tr>
-                <tr><td>10 JUN</td><td>16 JUN</td><td>RM 4,590</td><td>RM 4,190</td><td>Musim Summer</td></tr>
-                <tr><td>17 JUL</td><td>23 JUL</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Summer</td></tr>
-                <tr><td>09 OCT</td><td>15 OCT</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Autumn</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-
-        <h3>Cuti Sekolah 2026</h3>
-        <div class="school-grid">
-          <div class="school-item">Cuti 1: 19 Mac 2026 - 29 Mac 2026</div>
-          <div class="school-item">Cuti 2: 23 Mei 2026 - 07 Jun 2026</div>
-          <div class="school-item">Cuti 3: 29 Ogos 2026 - 06 Sep 2026</div>
-          <div class="school-item">Cuti 4: 05 Dis 2026 - 31 Dis 2026</div>
-        </div>
-        <p class="caps">Maklumat Flight: Batik Air / AirAsia (Tertakluk Kepada Jadual Semasa)</p>
-        <div class="schedule-actions"><a class="btn btn-gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">Semak Tarikh Di WhatsApp</a></div>
-      </section>
-
-      <section class="reveal">
-        <h2>Apa Yang Termasuk Dalam Pakej</h2>
-        <ul class="tick-list">
-          <li><span class="tick">✓</span><span class="caps">Penginapan</span></li>
-          <li><span class="tick">✓</span><span class="caps">Pengangkutan Perjalanan</span></li>
-          <li><span class="tick">✓</span><span class="caps">Itinerary Tersusun</span></li>
-          <li><span class="tick">✓</span><span class="caps">Lawatan Lokasi Menarik</span></li>
-          <li><span class="tick">✓</span><span class="caps">Sokongan Sepanjang Trip</span></li>
-        </ul>
-      </section>
-
-      <section class="reveal">
-        <h2>Maklum Balas Pelanggan</h2>
-        <div class="cards">
-          <article class="card"><div class="stars">★★★★★</div><h3>Nama Pelanggan 1</h3><p>Urusan lebih mudah dan team cepat bantu bila ada pertanyaan.</p></article>
-          <article class="card"><div class="stars">★★★★★</div><h3>Nama Pelanggan 2</h3><p>Sesuai untuk first timer sebab penerangan jelas dan tersusun.</p></article>
-        </div>
-        <div class="badge-row">
-          <span class="badge">Travel Agency Berdaftar</span>
-          <span class="badge">Pertanyaan Mudah</span>
-          <span class="badge">Pengalaman Pelanggan Memuaskan</span>
-          <span class="badge">Bantuan Mesra Pelanggan</span>
-        </div>
-      </section>
-
-      <section class="offer reveal" id="offer">
-        <span class="tag">Desire</span>
-        <h2>Pakej Yunnan</h2>
-        <p class="caps">Harga Promosi RM3890</p>
-        <p class="muted">Pakej ini sesuai untuk mereka yang mahu pengalaman travel lebih mudah, lebih teratur dan lebih selesa tanpa perlu mengurus terlalu banyak perkara sendiri.</p>
-        <ul class="tick-list">
-          <li><span class="tick">✓</span><span class="caps">Tempat Adalah Terhad</span></li>
-          <li><span class="tick">✓</span><span class="caps">Semakan Awal Digalakkan</span></li>
-          <li><span class="tick">✓</span><span class="caps">Hubungi Kami Untuk Maklumat Lanjut</span></li>
-        </ul>
-        <a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
-      </section>
-
-      <section class="reveal" id="faq">
-        <h2>Soalan Lazim</h2>
-        <div class="faq">
-          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Adakah Pakej Ini Sesuai Untuk First Time Travel?</button><div class="faq-panel"><p>Ya, pakej ini disusun untuk pelanggan first timer supaya lebih mudah ikut perjalanan.</p></div></article>
-          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Bolehkah Saya Semak Tarikh Dahulu?</button><div class="faq-panel"><p>Boleh. Anda boleh semak tarikh premium dan biasa dahulu sebelum buat keputusan.</p></div></article>
-          <article class="faq-item"><button class="faq-btn" aria-expanded="false">Bagaimana Cara Hubungi Team?</button><div class="faq-panel"><p>Tekan mana-mana butang WhatsApp di halaman ini untuk pertanyaan segera.</p></div></article>
-        </div>
-      </section>
-
-      <section class="final reveal" id="hubungi">
-        <span class="tag" style="background:rgba(255,255,255,.2)">Action</span>
-        <h2>Berminat Dengan Pakej Yunnan Ini?</h2>
-        <p>Untuk pertanyaan, semakan tarikh, atau maklumat lanjut, hubungi kami terus melalui WhatsApp.</p>
-        <div class="btns">
-          <a class="btn btn-gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
-          <a class="btn btn-outline" href="#utama">Lihat Semula Maklumat</a>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <a class="wa-float" href="https://wa.me/60125001601" target="_blank" rel="noopener" aria-label="Hubungi melalui WhatsApp">
-    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.18c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.54.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.59 1.1 2.77c.13.18 1.88 2.87 4.55 4.02.64.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.12-.24-.2-.51-.34z"/><path d="M16.02 3.2c-7.05 0-12.78 5.72-12.78 12.77 0 2.25.59 4.45 1.7 6.39L3.12 28.8l6.61-1.74a12.74 12.74 0 0 0 6.29 1.7h.01c7.04 0 12.77-5.73 12.77-12.77 0-3.41-1.33-6.62-3.74-9.03A12.68 12.68 0 0 0 16.02 3.2zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.63 10.63 0 1 1 8.92 4.89z"/></svg>
-  </a>
-
-  <div class="sticky-bottom"><a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">Hubungi Kami Di WhatsApp</a></div>
-
-  <aside class="popup" id="promoPopup" aria-hidden="true" role="dialog">
-    <div class="popup-card">
-      <div class="popup-top">
-        <div><h3>Berminat Dengan Pakej Yunnan?</h3><p class="muted">Hubungi kami di WhatsApp untuk semakan tarikh terkini dan maklumat lanjut.</p></div>
-        <button class="popup-close" id="popupClose" aria-label="Tutup">×</button>
-      </div>
-      <a class="btn btn-primary" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a>
-    </div>
-  </aside>
-
-  <script>
-    (function () {
-      const faqs = document.querySelectorAll('.faq-item');
-      faqs.forEach((item) => {
-        const btn = item.querySelector('.faq-btn');
-        const panel = item.querySelector('.faq-panel');
-        btn.addEventListener('click', () => {
-          const isOpen = item.classList.contains('on');
-          faqs.forEach((el) => {
-            el.classList.remove('on');
-            el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
-            el.querySelector('.faq-panel').style.maxHeight = null;
-          });
-          if (!isOpen) {
-            item.classList.add('on');
-            btn.setAttribute('aria-expanded', 'true');
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-          }
-        });
-      });
-
-      const revealEls = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('on');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.14 });
-      revealEls.forEach((el) => io.observe(el));
-
-      const popup = document.getElementById('promoPopup');
-      const popupClose = document.getElementById('popupClose');
-      let shown = false;
-      const showPopup = () => {
-        if (shown) return;
-        shown = true;
-        popup.classList.add('show');
-        popup.setAttribute('aria-hidden', 'false');
-      };
-      const timer = setTimeout(showPopup, 4200);
-      const onScroll = () => {
-        if (window.scrollY > 240) {
-          clearTimeout(timer);
-          showPopup();
-          window.removeEventListener('scroll', onScroll);
-        }
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      popupClose.addEventListener('click', () => {
-        popup.classList.remove('show');
-        popup.setAttribute('aria-hidden', 'true');
-      });
-      popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-          popup.classList.remove('show');
-          popup.setAttribute('aria-hidden', 'true');
-        }
-      });
-    }());
-  </script>
-</body>
-</html>
+<header class="top"><div class="topin"><div class="brand">Nusa Travel<b>Pakej Yunnan</b></div><a class="topbtn" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Kami</a></div></header>
+<div class="app"><main>
+<section class="hero rev" id="utama"><span class="tag">Attention</span><h1>Pakej Yunnan Yang Lebih Mudah, Tersusun Dan Selesa</h1><p class="muted">Nikmati pengalaman ke Yunnan bersama Nusa Travel dengan susunan perjalanan yang lebih teratur untuk pengalaman yang lebih tenang dan menyenangkan.</p><div class="price"><small>Harga Promosi</small><b>RM3890</b></div><div class="btns"><a class="btn pri" href="https://wa.me/60125001601" target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.18c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.54.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.59 1.1 2.77c.13.18 1.88 2.87 4.55 4.02.64.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.12-.24-.2-.51-.34z"/><path d="M16.02 3.2c-7.05 0-12.78 5.72-12.78 12.77 0 2.25.59 4.45 1.7 6.39L3.12 28.8l6.61-1.74a12.74 12.74 0 0 0 6.29 1.7h.01c7.04 0 12.77-5.73 12.77-12.77 0-3.41-1.33-6.62-3.74-9.03A12.68 12.68 0 0 0 16.02 3.2zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.63 10.63 0 1 1 8.92 4.89z"/></svg>Tanya Melalui WhatsApp</a><a class="btn out" href="#jadual">Lihat Tarikh & Harga</a></div><div class="pills"><span class="pill">Perjalanan Terancang</span><span class="pill">Mesra First Timer</span><span class="pill">Pertanyaan Mudah</span></div><figure class="heroimg"><img src="https://placehold.co/900x560/fff1f6/a51639?text=Hero+Image+Yunnan" alt="Hero Image Yunnan" /></figure></section>
+<section class="sec rev"><h2>Kenapa Pakej Ini Menarik</h2><div class="quick"><article class="box"><h3>Mudah</h3><p>Langkah perjalanan lebih jelas.</p></article><article class="box"><h3>Tersusun</h3><p>Kurang stres urus sendiri.</p></article><article class="box"><h3>First Timer</h3><p>Sesuai pelbagai golongan.</p></article><article class="box"><h3>Destinasi Menarik</h3><p>Alam, budaya, bandar lama.</p></article></div></section>
+<section class="sec rev"><h2>Kenapa Ramai Pilih Nusa Travel</h2><p class="muted">Bila susunan perjalanan jelas, pelanggan tak perlu pening urus banyak perkara sendiri. Harga jadi lebih berbaloi dari segi pengalaman.</p><div class="compare"><article class="box"><h3>Rancang Sendiri</h3><p>Perlu semak banyak benda dan mudah rasa terbeban.</p></article><article class="box"><h3>Bersama Nusa Travel</h3><p>Aliran lebih kemas, bantuan lebih jelas, pengalaman lebih tenang.</p></article></div></section>
+<section class="sec rev" id="jadual"><div class="head"><h2>Tarikh Pelepasan 2026</h2><p class="caps">Semak Tarikh Berlepas, Ketibaan, Harga Asal Dan Harga Promo</p></div><details><summary>Tarikh Premium 2026</summary><div class="twrap"><table class="tbl"><thead><tr><th>Berlepas</th><th>Ketibaan</th><th>Harga Asal</th><th>Harga Promo</th><th>Nota</th></tr></thead><tbody><tr><td>25 MAR</td><td>31 MAR</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah + Raya</td></tr><tr><td>28 MEI</td><td>03 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr><tr><td>30 MEI</td><td>05 JUN</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr><tr><td>31 AUG</td><td>06 SEP</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr><tr><td>05 DEC</td><td>11 DEC</td><td>RM 4,890</td><td>RM 4,790</td><td>Cuti Sekolah</td></tr></tbody></table></div></details><details><summary>Tarikh Biasa 2026</summary><div class="twrap"><table class="tbl"><thead><tr><th>Berlepas</th><th>Ketibaan</th><th>Harga Asal</th><th>Harga Promo</th><th>Nota</th></tr></thead><tbody><tr><td>07 FEB</td><td>13 FEB</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Winter</td></tr><tr><td>02 APR</td><td>08 APR</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Spring</td></tr><tr><td>10 JUN</td><td>16 JUN</td><td>RM 4,590</td><td>RM 4,190</td><td>Musim Summer</td></tr><tr><td>17 JUL</td><td>23 JUL</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Summer</td></tr><tr><td>09 OCT</td><td>15 OCT</td><td>RM 4,590</td><td>RM 4,490</td><td>Musim Autumn</td></tr></tbody></table></div></details><h3>Cuti Sekolah 2026</h3><div class="school"><div class="item">Cuti 1: 19 Mac 2026 - 29 Mac 2026</div><div class="item">Cuti 2: 23 Mei 2026 - 07 Jun 2026</div><div class="item">Cuti 3: 29 Ogos 2026 - 06 Sep 2026</div><div class="item">Cuti 4: 05 Dis 2026 - 31 Dis 2026</div></div><p class="caps">Maklumat Flight: Batik Air / AirAsia (Tertakluk Jadual Semasa)</p><a class="btn gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">Semak Tarikh Di WhatsApp</a></section>
+<section class="sec rev"><h2>Apa Yang Termasuk Dalam Pakej</h2><ul class="ticklist"><li><span class="tick">✓</span><span class="caps">Penginapan</span></li><li><span class="tick">✓</span><span class="caps">Pengangkutan Perjalanan</span></li><li><span class="tick">✓</span><span class="caps">Itinerary Tersusun</span></li><li><span class="tick">✓</span><span class="caps">Lawatan Lokasi Menarik</span></li><li><span class="tick">✓</span><span class="caps">Bantuan Sepanjang Trip</span></li></ul></section>
+<section class="sec rev"><h2>Maklum Balas Pelanggan</h2><div class="cards"><article class="box"><div class="stars">★★★★★</div><h3>Nama Pelanggan 1</h3><p>Pengalaman trip lebih mudah dan tersusun.</p></article><article class="box"><div class="stars">★★★★★</div><h3>Nama Pelanggan 2</h3><p>Pertanyaan WhatsApp cepat dan jelas.</p></article></div><div class="badges"><span class="badge">Travel Agency Berdaftar</span><span class="badge">Pertanyaan Mudah</span><span class="badge">Mesra Pelanggan</span><span class="badge">Susunan Tersusun</span></div></section>
+<section class="offer rev" id="offer"><span class="tag">Desire</span><h2>Pakej Yunnan</h2><p class="caps">Harga Promosi RM3890</p><p class="muted">Pakej ini sesuai untuk mereka yang ingin pengalaman travel lebih mudah, teratur dan selesa tanpa urus terlalu banyak perkara sendiri.</p><ul class="ticklist"><li><span class="tick">✓</span><span class="caps">Tempat Terhad Mengikut Kekosongan</span></li><li><span class="tick">✓</span><span class="caps">Semakan Awal Digalakkan</span></li><li><span class="tick">✓</span><span class="caps">Hubungi Kami Untuk Maklumat Lanjut</span></li></ul><a class="btn pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a></section>
+<section class="sec rev" id="faq"><h2>Soalan Lazim</h2><div class="faq"><article class="faqi"><button class="fbtn" aria-expanded="false">Adakah Pakej Ini Sesuai Untuk First Timer?</button><div class="fp"><p>Ya. Susunan perjalanan dibuat supaya first timer lebih mudah ikut.</p></div></article><article class="faqi"><button class="fbtn" aria-expanded="false">Boleh Semak Tarikh Dahulu?</button><div class="fp"><p>Boleh. Anda boleh semak tarikh premium dan biasa dahulu.</p></div></article><article class="faqi"><button class="fbtn" aria-expanded="false">Bagaimana Nak Hubungi Team?</button><div class="fp"><p>Klik mana-mana butang WhatsApp di halaman ini.</p></div></article></div></section>
+<section class="final rev"><span class="tag" style="background:rgba(255,255,255,.2)">Action</span><h2>Berminat Dengan Pakej Yunnan Ini?</h2><p>Untuk pertanyaan, semakan tarikh, atau maklumat lanjut, hubungi kami terus melalui WhatsApp.</p><div class="btns"><a class="btn gold" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a><a class="btn out" href="#utama">Lihat Semula Maklumat</a></div></section>
+</main></div>
+<a class="wf" href="https://wa.me/60125001601" target="_blank" rel="noopener" aria-label="Hubungi melalui WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.18c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.54.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47h-.51c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.59 1.1 2.77c.13.18 1.88 2.87 4.55 4.02.64.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.64 1.8-1.25.22-.6.22-1.12.16-1.25-.07-.12-.24-.2-.51-.34z"/><path d="M16.02 3.2c-7.05 0-12.78 5.72-12.78 12.77 0 2.25.59 4.45 1.7 6.39L3.12 28.8l6.61-1.74a12.74 12.74 0 0 0 6.29 1.7h.01c7.04 0 12.77-5.73 12.77-12.77 0-3.41-1.33-6.62-3.74-9.03A12.68 12.68 0 0 0 16.02 3.2zm0 23.4h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.92 1.03 1.05-3.82-.25-.39a10.63 10.63 0 1 1 8.92 4.89z"/></svg></a>
+<div class="sb"><a class="btn pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">Hubungi Kami Di WhatsApp</a></div>
+<aside class="pop" id="promoPopup" aria-hidden="true" role="dialog"><div class="popcard"><div class="popt"><div><h3>Berminat Dengan Pakej Yunnan?</h3><p class="muted">Hubungi kami di WhatsApp untuk semakan tarikh terkini dan maklumat lanjut.</p></div><button class="x" id="close" aria-label="Tutup">×</button></div><a class="btn pri" href="https://wa.me/60125001601" target="_blank" rel="noopener">WhatsApp Sekarang</a></div></aside>
+<script>(function(){const faqs=document.querySelectorAll('.faqi');faqs.forEach(i=>{const b=i.querySelector('.fbtn'),p=i.querySelector('.fp');b.addEventListener('click',()=>{const on=i.classList.contains('on');faqs.forEach(o=>{o.classList.remove('on');o.querySelector('.fbtn').setAttribute('aria-expanded','false');o.querySelector('.fp').style.maxHeight=null});if(!on){i.classList.add('on');b.setAttribute('aria-expanded','true');p.style.maxHeight=p.scrollHeight+'px'}})});const rev=document.querySelectorAll('.rev');const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.14});rev.forEach(r=>io.observe(r));const pop=document.getElementById('promoPopup'),x=document.getElementById('close');let shown=false;const show=()=>{if(shown)return;shown=true;pop.classList.add('show');pop.setAttribute('aria-hidden','false')};const t=setTimeout(show,3600);const onScr=()=>{if(window.scrollY>220){clearTimeout(t);show();window.removeEventListener('scroll',onScr)}};window.addEventListener('scroll',onScr,{passive:true});x.addEventListener('click',()=>{pop.classList.remove('show');pop.setAttribute('aria-hidden','true')});pop.addEventListener('click',e=>{if(e.target===pop){pop.classList.remove('show');pop.setAttribute('aria-hidden','true')}})})();</script>
+</body></html>
